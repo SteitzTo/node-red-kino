@@ -69,12 +69,6 @@ If you say: "Alexa turn the Kino off"
                                              
 ------------------------------------------------------------------
 
-![Denon Control](https://github.com/user-attachments/assets/ba41c84e-de99-479f-b094-25854084fb78)
-
-
-
-
-
 
 
 If you want to use it too: have fun with it.
