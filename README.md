@@ -10,8 +10,6 @@ At home I always had the problem when I wanted to start a film evening, I had to
 
 It would also be compulsory if you could do everything in one swing and the Alexa. So I dealt with my Raspi, Node-Red and the additional modules and this control came out.
 
-Also the Denon implementaion of Alexa is not so good and i want more control of the receiver with my voice. Volume up and down, changing input channels aso.
-
 
 ## Dependencies:
 
