@@ -24,6 +24,8 @@ It would also be compulsory if you could do everything in one swing and the Alex
 
 [node-red-contrib-alexa-remote2-applestrudel](https://flows.nodered.org/node/node-red-contrib-alexa-remote2-applestrudel)
 
+[node-red-node-wol](https://flows.nodered.org/node/node-red-node-wol)
+
 
 
 ## Additonal Information:
@@ -39,6 +41,8 @@ I trigger the Blinds with a [Shelly 2 PM](https://www.shelly.com/de/products/she
 The [Lamp](https://www.amazon.de/gp/product/B08BFPGWZ1/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1) is a Alexa-Ready Standlamp with a Tuya Interface.
 
 The [Plugs](https://www.amazon.de/gp/product/B08BFPGWZ1/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1) are some Tasmota Plugs from Amazon
+
+TV ist starting over Wake on Lan   (must be enable in TV)
 
 
 
@@ -56,7 +60,8 @@ If you say: "Alexa turn the Kino on"
 > Denon Receiver is set to Volume 20<br>
 > Tasmota Plug is switched on via http request  (It turns TV an Mediabox on)<br>
 > The blinds going down till 80%<br>
-> The Livingroomlamp is switched on<br>
+> The Livingroomlamp is switched on ans brighten the light to 10%<br>
+> MY LG-TV start over Wake on Lan
 
                                              
 If you say: "Alexa turn the Kino off"   
