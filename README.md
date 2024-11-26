@@ -34,15 +34,15 @@ My Denon Receiver is a AVR-X3700H.  You can control it via Telnet and Webinterfa
 
 For my implementation i use the Denon AVR-Control Protocol.
 
-I think it works also wiht other Denon AVR Models.
+I think it works also with other Denon AVR Models.
 
-I trigger the Blinds with a [Shelly 2 PM](https://www.shelly.com/de/products/shelly-plus-2pm)
+I trigger the blinds with a [Shelly 2 PM](https://www.shelly.com/de/products/shelly-plus-2pm)
 
 The [Lamp](https://www.amazon.de/gp/product/B08BFPGWZ1/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1) is a Alexa-Ready Standlamp with a Tuya Interface.
 
 The [Plugs](https://www.amazon.de/gp/product/B08BFPGWZ1/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1) are some Tasmota Plugs from Amazon
 
-TV ist starting over Wake on Lan   (must be enable in TV)
+TV is starting over Wake on Lan   (must be enable in TV)
 
 
 
@@ -62,7 +62,7 @@ If you say: "Alexa turn the Kino on"
 > Tasmota Plug is switched on via http request  (It turns TV an Mediabox on)<br>
 > The blinds going down till 80%<br>
 > The Livingroomlamp is switched on ans brighten the light to 10%<br>
-> MY LG-TV start over Wake on Lan
+> My LG TV start over Wake on Lan
 
                                              
 If you say: "Alexa turn the Kino off"   
