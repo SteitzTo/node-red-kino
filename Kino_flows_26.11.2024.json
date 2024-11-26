@@ -409,7 +409,7 @@
         "name": "Kino",
         "topic": "Kino",
         "metadata": "",
-        "connection": "8942056a60da26d4",
+        "connection": "",
         "template": "SWITCH",
         "retrievable": false,
         "passthrough": false,
@@ -621,11 +621,11 @@
     {
         "id": "8942056a60da26d4",
         "type": "vsh-connection",
-        "name": "megafoxy@gmx.de",
+        "name": "",
         "port": "8883",
-        "accessTokenExpiry": "1728380600011",
+        "accessTokenExpiry": "",
         "debug": false,
-        "backendUrl": "https://kfd5m4a21f.execute-api.eu-west-1.amazonaws.com/dev",
-        "lwaClientId": "amzn1.application-oa2-client.3f1bb07133854b078261ad43f2484c18"
+        "backendUrl": "",
+        "lwaClientId": ""
     }
 ]
