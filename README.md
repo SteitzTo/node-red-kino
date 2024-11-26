@@ -48,7 +48,8 @@ TV ist starting over Wake on Lan   (must be enable in TV)
 
 ----------------------------------------------------
 
-![HomeCinema](https://github.com/user-attachments/assets/cf091b8a-aa76-477d-9895-e96a1cb37dd6)
+![Zwischenablage_11-26-2024_01](https://github.com/user-attachments/assets/058279c3-1b63-45ad-a6bf-78537a2b40c8)
+
 
 
 How it works:
