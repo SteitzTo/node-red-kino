@@ -10,7 +10,7 @@ It would also be compulsory if you could do everything in one swing and the Alex
 ## Dependencies:
 
 
-[node-red-contrib-denon-sxp](https://flows.nodered.org/node/node-red-contrib-denon-sxp))
+[node-red-contrib-denon-sxp](https://flows.nodered.org/node/node-red-contrib-denon-sxp)
 
 [node-red-contrib-shelly](https://flows.nodered.org/node/node-red-contrib-shelly)
 
