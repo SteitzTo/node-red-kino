@@ -1,0 +1,451 @@
+[
+    {
+        "id": "2b5e6fb8deca98b4",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "188c59203cfb1103",
+        "type": "http request",
+        "z": "2b5e6fb8deca98b4",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://192.168.2.22/cm?cmnd=Power1%20On",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 1050,
+        "y": 200,
+        "wires": [
+            [
+                "8f19dd8dc9a847b2"
+            ]
+        ]
+    },
+    {
+        "id": "3e7810180549ce17",
+        "type": "shelly-gen2",
+        "z": "2b5e6fb8deca98b4",
+        "hostname": "192.168.2.24",
+        "description": "Rolladen links",
+        "mode": "polling",
+        "verbose": false,
+        "server": "",
+        "outputmode": "event",
+        "uploadretryinterval": 5000,
+        "pollinginterval": 5000,
+        "pollstatus": false,
+        "getstatusoncommand": false,
+        "devicetype": "SNSW-002P16EU",
+        "devicetypemustmatchexactly": false,
+        "captureblutooth": false,
+        "outputs": 1,
+        "x": 1200,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "449b30a65e85f6da",
+        "type": "function",
+        "z": "2b5e6fb8deca98b4",
+        "name": "function 10",
+        "func": "msg.payload = {\n    method: \"Cover.GoToPosition\",\n    parameters: {\n        id: 0,\n        pos: 80, \n}\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 460,
+        "wires": [
+            [
+                "3e7810180549ce17"
+            ]
+        ]
+    },
+    {
+        "id": "9018693f2b0d58b7",
+        "type": "switch",
+        "z": "2b5e6fb8deca98b4",
+        "name": "",
+        "property": "payload.directive",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "TurnOn",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "TurnOff",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 830,
+        "y": 560,
+        "wires": [
+            [
+                "449b30a65e85f6da",
+                "ff700e36918d0a73",
+                "188c59203cfb1103",
+                "40a0a76621db3359"
+            ],
+            [
+                "09344b88e231ea2c"
+            ]
+        ]
+    },
+    {
+        "id": "09344b88e231ea2c",
+        "type": "http request",
+        "z": "2b5e6fb8deca98b4",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://192.168.2.22/cm?cmnd=Power1%20Off",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 1050,
+        "y": 620,
+        "wires": [
+            [
+                "28e9e8e85ee96306",
+                "458e2d93f35e1711"
+            ]
+        ]
+    },
+    {
+        "id": "9a289e3031b40c90",
+        "type": "comment",
+        "z": "2b5e6fb8deca98b4",
+        "name": "Schaltet Denon,TV, Rolladen auf 80%",
+        "info": "",
+        "x": 630,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "41eff561192a03f2",
+        "type": "comment",
+        "z": "2b5e6fb8deca98b4",
+        "name": "Schaltet Denon,TV aus",
+        "info": "",
+        "x": 580,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "6b38a5710c0670fe",
+        "type": "debug",
+        "z": "2b5e6fb8deca98b4",
+        "name": "debug 12",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "8df244318d765f5e",
+        "type": "vsh-virtual-device",
+        "z": "2b5e6fb8deca98b4",
+        "name": "Kino",
+        "topic": "Kino",
+        "metadata": "",
+        "connection": "8942056a60da26d4",
+        "template": "ENTERTAINMENT_DEVICE",
+        "retrievable": false,
+        "passthrough": false,
+        "diff": false,
+        "filter": false,
+        "filterTopic": false,
+        "plan": "free",
+        "x": 430,
+        "y": 560,
+        "wires": [
+            [
+                "9018693f2b0d58b7",
+                "6b38a5710c0670fe"
+            ]
+        ]
+    },
+    {
+        "id": "fcce18b57e61154b",
+        "type": "inject",
+        "z": "2b5e6fb8deca98b4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 240,
+        "y": 560,
+        "wires": [
+            [
+                "8df244318d765f5e"
+            ]
+        ]
+    },
+    {
+        "id": "8f19dd8dc9a847b2",
+        "type": "delay",
+        "z": "2b5e6fb8deca98b4",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1260,
+        "y": 200,
+        "wires": [
+            [
+                "52ba9ad0dd518b03"
+            ]
+        ]
+    },
+    {
+        "id": "86b44b1e42d50a42",
+        "type": "wake on lan",
+        "z": "2b5e6fb8deca98b4",
+        "mac": "00:A1:59:37:33:F6",
+        "host": "192.168.2.60",
+        "udpport": 9,
+        "numpackets": 3,
+        "interval": 100,
+        "name": "",
+        "x": 1750,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "52ba9ad0dd518b03",
+        "type": "change",
+        "z": "2b5e6fb8deca98b4",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1490,
+        "y": 200,
+        "wires": [
+            [
+                "86b44b1e42d50a42"
+            ]
+        ]
+    },
+    {
+        "id": "ff700e36918d0a73",
+        "type": "delay",
+        "z": "2b5e6fb8deca98b4",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "4",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1120,
+        "y": 340,
+        "wires": [
+            [
+                "878ec5364dce19b5",
+                "dbc52e5222a0f90b",
+                "3be149debc3b378e"
+            ]
+        ]
+    },
+    {
+        "id": "878ec5364dce19b5",
+        "type": "delay",
+        "z": "2b5e6fb8deca98b4",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1420,
+        "y": 340,
+        "wires": [
+            [
+                "c5db324f9a96fa16"
+            ]
+        ]
+    },
+    {
+        "id": "28e9e8e85ee96306",
+        "type": "denon-out",
+        "z": "2b5e6fb8deca98b4",
+        "name": "Ausschalten Main",
+        "controller": "8be3516b960410e0",
+        "unit_number": "1",
+        "output": "1",
+        "denoncommand": "PWSTANDBY",
+        "x": 1290,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "458e2d93f35e1711",
+        "type": "denon-out",
+        "z": "2b5e6fb8deca98b4",
+        "name": "Auschalten Zone2",
+        "controller": "8be3516b960410e0",
+        "unit_number": "1",
+        "output": "1",
+        "denoncommand": "Z2OFF",
+        "x": 1290,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "40a0a76621db3359",
+        "type": "denon-out",
+        "z": "2b5e6fb8deca98b4",
+        "name": "Anschalten",
+        "controller": "8be3516b960410e0",
+        "unit_number": "1",
+        "output": "1",
+        "denoncommand": "PWON",
+        "x": 1110,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "dbc52e5222a0f90b",
+        "type": "denon-out",
+        "z": "2b5e6fb8deca98b4",
+        "name": "Eingang auf TV  ",
+        "controller": "8be3516b960410e0",
+        "unit_number": "1",
+        "output": "1",
+        "denoncommand": "SITV",
+        "x": 1420,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "c5db324f9a96fa16",
+        "type": "denon-out",
+        "z": "2b5e6fb8deca98b4",
+        "name": "Volume 20 ",
+        "controller": "8be3516b960410e0",
+        "unit_number": "1",
+        "output": "1",
+        "denoncommand": "MV20",
+        "x": 1650,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "3be149debc3b378e",
+        "type": "denon-out",
+        "z": "2b5e6fb8deca98b4",
+        "name": "Zone2 TV",
+        "controller": "8be3516b960410e0",
+        "unit_number": "1",
+        "output": "1",
+        "denoncommand": "Z2SOURCE",
+        "x": 1400,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "8942056a60da26d4",
+        "type": "vsh-connection",
+        "name": "megafoxy@gmx.de",
+        "port": "8883",
+        "accessTokenExpiry": "1728380600011",
+        "debug": false,
+        "backendUrl": "https://kfd5m4a21f.execute-api.eu-west-1.amazonaws.com/dev",
+        "lwaClientId": "amzn1.application-oa2-client.3f1bb07133854b078261ad43f2484c18"
+    },
+    {
+        "id": "8be3516b960410e0",
+        "type": "denon-controller",
+        "name": "Denon",
+        "host": "192.168.2.230",
+        "port": 23
+    },
+    {
+        "id": "bb6804aa84a37ef8",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-shelly": "11.12.3",
+            "node-red-contrib-virtual-smart-home": "4.5.1",
+            "node-red-node-wol": "0.2.0",
+            "node-red-contrib-denon-sxp": "1.0.1"
+        }
+    }
+]
