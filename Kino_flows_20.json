@@ -1,0 +1,497 @@
+[
+    {
+        "id": "1fcdc74f81b3d415",
+        "type": "vsh-virtual-device",
+        "z": "1c94b1404684df75",
+        "name": "Denon",
+        "topic": "Denon",
+        "metadata": "",
+        "connection": "8942056a60da26d4",
+        "template": "ENTERTAINMENT_DEVICE",
+        "retrievable": false,
+        "passthrough": false,
+        "diff": false,
+        "filter": false,
+        "filterTopic": false,
+        "plan": "free",
+        "x": 350,
+        "y": 1160,
+        "wires": [
+            [
+                "0dee63c051e2742d"
+            ]
+        ]
+    },
+    {
+        "id": "bd75ded9f9ced507",
+        "type": "switch",
+        "z": "1c94b1404684df75",
+        "name": "",
+        "property": "payload.input",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "GAME",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "TV",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "PC",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "BLUETOOTH",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 890,
+        "y": 1160,
+        "wires": [
+            [
+                "e775e403baaef9ad"
+            ],
+            [
+                "d48c092315a01da9"
+            ],
+            [
+                "9b5f4362a683bff2"
+            ],
+            [
+                "8e9a6b8b7aaf40af",
+                "8243fc5569a538eb"
+            ]
+        ]
+    },
+    {
+        "id": "8e9a6b8b7aaf40af",
+        "type": "alexa-remote-echo",
+        "z": "1c94b1404684df75",
+        "name": "",
+        "account": "899a90d7e0f984da",
+        "config": {
+            "option": "bluetooth",
+            "value": {
+                "action": {
+                    "type": "str",
+                    "value": "pair"
+                },
+                "device": {
+                    "type": "str",
+                    "value": "G091AA0811270237"
+                },
+                "gadget": {
+                    "type": "str",
+                    "value": "a3996390-750e-4bd3-88c3-083eb7501af7"
+                }
+            }
+        },
+        "x": 1144.2856826782227,
+        "y": 1319.9999732971191,
+        "wires": [
+            [
+                "8e46a170595441dd"
+            ]
+        ]
+    },
+    {
+        "id": "a71db39141a5f99b",
+        "type": "inject",
+        "z": "1c94b1404684df75",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 164.28568267822266,
+        "y": 1159.9999732971191,
+        "wires": [
+            [
+                "1fcdc74f81b3d415"
+            ]
+        ]
+    },
+    {
+        "id": "0dee63c051e2742d",
+        "type": "switch",
+        "z": "1c94b1404684df75",
+        "name": "",
+        "property": "payload.directive",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "TurnOff",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "TurnOn",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "SelectInput",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "SetVolume",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 490,
+        "y": 1160,
+        "wires": [
+            [
+                "bf34d20c2c0c49eb",
+                "b94940ba854af15e",
+                "74926bb3afa50f16"
+            ],
+            [
+                "9bf89116807347f0",
+                "26211c14bc57c1fc"
+            ],
+            [
+                "bd75ded9f9ced507"
+            ],
+            [
+                "c408041196061169"
+            ]
+        ]
+    },
+    {
+        "id": "9bf89116807347f0",
+        "type": "delay",
+        "z": "1c94b1404684df75",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 920,
+        "y": 1020,
+        "wires": [
+            [
+                "391e727914ed2e39"
+            ]
+        ]
+    },
+    {
+        "id": "8e46a170595441dd",
+        "type": "delay",
+        "z": "1c94b1404684df75",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "3",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1324.2856826782227,
+        "y": 1319.9999732971191,
+        "wires": [
+            [
+                "435d18bf334c80cf"
+            ]
+        ]
+    },
+    {
+        "id": "b94940ba854af15e",
+        "type": "denon-out",
+        "z": "1c94b1404684df75",
+        "name": "Ausschalten Main",
+        "controller": "8be3516b960410e0",
+        "unit_number": "1",
+        "output": "1",
+        "denoncommand": "PWSTANDBY",
+        "x": 750,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "bf34d20c2c0c49eb",
+        "type": "denon-out",
+        "z": "1c94b1404684df75",
+        "name": "Auschalten Zone2",
+        "controller": "8be3516b960410e0",
+        "unit_number": "1",
+        "output": "1",
+        "denoncommand": "Z2OFF",
+        "x": 750,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "391e727914ed2e39",
+        "type": "denon-out",
+        "z": "1c94b1404684df75",
+        "name": "Volume 20 ",
+        "controller": "8be3516b960410e0",
+        "unit_number": "1",
+        "output": "1",
+        "denoncommand": "MV20",
+        "x": 1150,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "e775e403baaef9ad",
+        "type": "denon-out",
+        "z": "1c94b1404684df75",
+        "name": "Eingang auf Game  ",
+        "controller": "8be3516b960410e0",
+        "unit_number": "1",
+        "output": "1",
+        "denoncommand": "SIGAME",
+        "x": 1154.2856826782227,
+        "y": 1099.9999732971191,
+        "wires": []
+    },
+    {
+        "id": "d48c092315a01da9",
+        "type": "denon-out",
+        "z": "1c94b1404684df75",
+        "name": "Eingang auf TV",
+        "controller": "8be3516b960410e0",
+        "unit_number": "1",
+        "output": "1",
+        "denoncommand": "SITV",
+        "x": 1144.2856826782227,
+        "y": 1139.9999732971191,
+        "wires": []
+    },
+    {
+        "id": "9b5f4362a683bff2",
+        "type": "denon-out",
+        "z": "1c94b1404684df75",
+        "name": "Eingang auf PC",
+        "controller": "8be3516b960410e0",
+        "unit_number": "1",
+        "output": "1",
+        "denoncommand": "SIMPLAY",
+        "x": 1140,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "8243fc5569a538eb",
+        "type": "denon-out",
+        "z": "1c94b1404684df75",
+        "name": "Eingang auf BT",
+        "controller": "8be3516b960410e0",
+        "unit_number": "1",
+        "output": "1",
+        "denoncommand": "SIBT",
+        "x": 1144.2856826782227,
+        "y": 1259.9999732971191,
+        "wires": []
+    },
+    {
+        "id": "435d18bf334c80cf",
+        "type": "denon-out",
+        "z": "1c94b1404684df75",
+        "name": "Volume 20 ",
+        "controller": "8be3516b960410e0",
+        "unit_number": "1",
+        "output": "1",
+        "denoncommand": "MV20",
+        "x": 1494.2856826782227,
+        "y": 1319.9999732971191,
+        "wires": []
+    },
+    {
+        "id": "26211c14bc57c1fc",
+        "type": "denon-out",
+        "z": "1c94b1404684df75",
+        "name": "Anschalten",
+        "controller": "8be3516b960410e0",
+        "unit_number": "1",
+        "output": "1",
+        "denoncommand": "PWON",
+        "x": 730,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "74926bb3afa50f16",
+        "type": "debug",
+        "z": "1c94b1404684df75",
+        "name": "debug 13",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "84296cdfe1677279",
+        "type": "inject",
+        "z": "1c94b1404684df75",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 804.2856826782227,
+        "y": 1279.9999732971191,
+        "wires": [
+            [
+                "e775e403baaef9ad"
+            ]
+        ]
+    },
+    {
+        "id": "58f374c1ee0c6eb9",
+        "type": "debug",
+        "z": "1c94b1404684df75",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1100,
+        "y": 1560,
+        "wires": []
+    },
+    {
+        "id": "c408041196061169",
+        "type": "function",
+        "z": "1c94b1404684df75",
+        "name": "function 9",
+        "func": "// Prüfen, ob das Payload-Objekt und die Lautstärke von Alexa vorhanden sind\nif (msg.payload && typeof msg.payload.volume !== 'undefined') {\n    // Lautstärke-Wert in eine Ganzzahl umwandeln\n    let vol = parseInt(msg.payload.volume, 10);\n    \n    // Denon erwartet zweistellige Strings (00 bis 99)\n    let volStr = vol < 10 ? \"0\" + vol : \"\" + vol;\n    \n    // Zur Sicherheit auf maximal 2 Stellen begrenzen\n    if (volStr.length > 2) {\n        volStr = \"99\";\n    }\n    \n    // Befehl mit Carriage Return (\\r) für die direkte TCP-Verbindung zusammenbauen\n    msg.payload = \"MV\" + volStr + \"\\r\";\n    \n    return msg;\n}\n\n// Falls keine Lautstärke übergeben wurde, verwerfen\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 1460,
+        "wires": [
+            [
+                "58f374c1ee0c6eb9",
+                "37348158778c72b9"
+            ]
+        ]
+    },
+    {
+        "id": "37348158778c72b9",
+        "type": "tcp out",
+        "z": "1c94b1404684df75",
+        "name": "",
+        "host": "192.168.2.230",
+        "port": "23",
+        "beserver": "client",
+        "base64": false,
+        "end": false,
+        "tls": "",
+        "x": 1140,
+        "y": 1460,
+        "wires": []
+    },
+    {
+        "id": "8942056a60da26d4",
+        "type": "vsh-connection",
+        "name": "megafoxy@gmx.de",
+        "port": "8883",
+        "accessTokenExpiry": "1728380600011",
+        "debug": false,
+        "backendUrl": "https://kfd5m4a21f.execute-api.eu-west-1.amazonaws.com/dev",
+        "lwaClientId": "amzn1.application-oa2-client.3f1bb07133854b078261ad43f2484c18"
+    },
+    {
+        "id": "899a90d7e0f984da",
+        "type": "alexa-remote-account",
+        "name": "Alexa Torsten",
+        "authMethod": "proxy",
+        "proxyOwnIp": "localhost",
+        "proxyPort": 3456,
+        "cookieFile": "/home/pi/alex-cookie-torsten.txt",
+        "refreshInterval": "3",
+        "alexaServiceHost": "layla.amazon.de",
+        "pushDispatchHost": "",
+        "amazonPage": "amazon.de",
+        "acceptLanguage": "de-DE",
+        "onKeywordInLanguage": "on",
+        "userAgent": "",
+        "usePushConnection": "on",
+        "autoInit": "on",
+        "autoQueryActivityOnTrigger": "off"
+    },
+    {
+        "id": "8be3516b960410e0",
+        "type": "denon-controller",
+        "name": "Denon",
+        "host": "192.168.2.230",
+        "port": 23
+    },
+    {
+        "id": "1ef424bc23797645",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-virtual-smart-home": "4.5.1",
+            "node-red-contrib-alexa-remote2-applestrudel": "5.1.1",
+            "node-red-contrib-denon-sxp": "1.0.1"
+        }
+    }
+]
